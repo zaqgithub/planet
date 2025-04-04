@@ -6,8 +6,8 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include<stb_image.h>
 
-const int width = 800;
-const int height = 600;
+const float width = 800;
+const float height = 600;
 float deltatime, lastframe;
 Camera camera;
 int mian() {
@@ -49,12 +49,12 @@ int mian() {
 	Shader plannetShader("glsl/plannetvertexshader.glsl", "glsl/plannetfragmentshader.glsl");
 	Model plannetModel("models/planet/planet.obj");
 	//store 10000 rotation for instance
-	unsigned int amount = 1000; 
+	unsigned int amount = 10000; 
 	glm::mat4* modelMatrices;
 	modelMatrices = new glm::mat4[amount];
 	srand(glfwGetTime()); // initialize random seed	
-	float radius = 15.0;
-	float offset = 2.5f;
+	float radius = 25.0;
+	float offset = 5.0f;
 	for (unsigned int i = 0; i < amount; i++)
 	{
 		glm::mat4 model = glm::mat4(1.0f);
@@ -132,7 +132,7 @@ int mian() {
 		glBindBuffer(GL_UNIFORM_BUFFER, ub);
 		glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(glm::mat4), glm::value_ptr(view));
 
-		project = glm::perspective(glm::radians(camera.fov), 800.0f / 600.0f, 0.1f, 1000.0f);
+		project = glm::perspective(glm::radians(camera.fov), width / height, 0.1f, 1000.0f);
 		glBufferSubData(GL_UNIFORM_BUFFER, sizeof(glm::mat4), sizeof(glm::mat4), glm::value_ptr(project));
 		glBindBuffer(GL_UNIFORM_BUFFER, 0);
 
