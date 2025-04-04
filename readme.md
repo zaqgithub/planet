@@ -1,5 +1,4 @@
-# planet
+# Planet
 
-     This project would be better if a CMake file is provided.Unfortunatly I'm still unfamilar with CMake,it could  not be a case if you really understand how code is built. Anyway the CMake Version will be supported soon.
-
-
+This project should be built by CMake.Unfornatly I'm still unfamilar with CMake but it would not be a case if you undertand the process of building code.
+Any way the CMake version would be provided soon
