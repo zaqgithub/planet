@@ -71,7 +71,7 @@ add_library(compile_flag INTERFACE)
 target_compile_features(compile_flag INTERFACE cxx_std_17)
 
 
-add_executable(planet asterriod.cpp)
+add_executable(planet ${CMAKE_SOURCE_DIR}/src/asterriod.cpp)
 
 add_subdirectory(${CMAKE_SOURCE_DIR}/pch)
 
