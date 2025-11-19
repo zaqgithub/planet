@@ -1,7 +1,6 @@
 #include"camera.h"
-#include "precompile.h"
+
 #include"ShaderClass.h"
-#include "macro.h"
 
 Shader::Shader(const char* vertexPath, const char* fragmentPath) {
 	std::string vertexCode;

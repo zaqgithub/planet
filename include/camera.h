@@ -1,5 +1,4 @@
 #pragma once
-#include "precompile.h"
 //define the enum type to determine the camera movement responsing to pressing of keyboard
 enum DIRECTION { FORWARD, BACKWARD, LEFT, RIGHT,Q,E };	
 class Camera {

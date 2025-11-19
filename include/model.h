@@ -1,5 +1,4 @@
 #pragma once
-#include "precompile.h"
 #include "ShaderClass.h"
 
 struct Vertex {

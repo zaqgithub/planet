@@ -1,5 +1,4 @@
 #pragma once
-#include"precompile.h"
 class Timer {
 public:
 	Timer() {

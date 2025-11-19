@@ -1,21 +1,19 @@
-#include"precompile.h"
 #include"camera.h"
 #include"model.h"
 #include"feedbackFunctions.h"
 #include"Timer.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include<stb_image.h>
-
 const float width = 800;
 const float height = 600;
 float deltatime, lastframe;
 Camera camera;
 int blinnphong = 0;
-int mian() {
+int main() {
 	//initial the glfw 
 	glfwInit();
 	//specify the version
-	glfwwindowHint(GLFW_CONTEXT_VERSION_MAJOR,4);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR,4);
 	//choose the core profile
 	glfwWindowHint(GLFW_OPENGL_PROFILE,GLFW_OPENGL_CORE_PROFILE);
@@ -33,7 +31,7 @@ int mian() {
 	glfwSetFramebufferSizeCallback(window,framebuffer_size_callback);
 
 	//check if glad library loaded properly
-	if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)){
+	if(!gladLoadGL(glfwGetProcAddress)){
 		std::cout<<"Failed to load glad"<<std::endl;
 		return -1;
 	}
@@ -44,7 +42,7 @@ int mian() {
 	glfwSetCursorPosCallback(window, mouse_callback);
 	glfwSetScrollCallback(window, scroll_callback);
 
-	Shader rockShader(std::string("glsl/asterriodvertexshader.glsl", "glsl/asterriodfragmentshader.glsl");
+	Shader rockShader("glsl/asterriodvertexshader.glsl", "glsl/asterriodfragmentshader.glsl");
 	Model rockModel("models/rock/rock.obj");
 	
 	Shader plannetShader("glsl/plannetvertexshader.glsl", "glsl/plannetfragmentshader.glsl");

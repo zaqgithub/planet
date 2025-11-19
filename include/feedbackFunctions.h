@@ -1,5 +1,4 @@
 #pragma once
-#include"precompile.h"
 //this header file contains some feedback function for opengl
 unsigned int loadTexture(const char* sda);
 

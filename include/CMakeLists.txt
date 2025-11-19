@@ -1,7 +1,26 @@
-file(GLOB cppforheader "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
-file(GLOB pch "../pch/precompile.h")
+set(DEPENDENCY_SOURCES
+	${CMAKE_CURRENT_SOURCE_DIR}/camera.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/model.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/ShaderClass.cpp
+)
 
-add_library(dependencies ${cppforheader})
-message(STATUS "PCH file: ${pch}")
-target_precompile_headers(dependencies PRIVATE ${pch})
-target_include_directories(dependencies INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+add_library(dependencies STATIC ${DEPENDENCY_SOURCES})
+
+target_include_directories(
+	dependencies
+	PUBLIC
+		${CMAKE_SOURCE_DIR}/include
+)
+
+target_link_libraries(
+	dependencies
+	PUBLIC
+		compiler_options
+		glm::glm
+		glfw
+		assimp
+		glad
+		stb::stb
+)
+
+target_precompile_headers(dependencies PRIVATE ${CMAKE_SOURCE_DIR}/pch/precompile.h)

@@ -1,5 +1,6 @@
-#include "precompile.h"
+
 #include"model.h"
+#include <stb_image.h>
 
 Mesh::Mesh(const std::vector<Vertex>& vertices, const std::vector<Texture>& textures, const std::vector<unsigned int>& indices) {
 	this->vertices = vertices;

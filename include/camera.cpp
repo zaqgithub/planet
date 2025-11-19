@@ -1,4 +1,4 @@
-#include "precompile.h"
+
 #include"camera.h"
 #include"ShaderClass.h"
 
